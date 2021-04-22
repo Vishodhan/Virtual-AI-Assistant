@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="5dp"
+    android:paddingRight="10dp"
+    tools:context=".Main_appln">
+
+    <Button
+        android:id="@+id/btn_obj"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:background="#2244EE"
+        android:clickable="true"
+        android:onClick="startRecording"
+        android:text="TAP ME"
+        android:textSize="45sp" />
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        -->
+    <!--&lt;!&ndash;        <Button&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:id="@+id/btn_text"&ndash;&gt;-->
+    <!--&lt;!&ndash;            style="@android:style/ButtonBar"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:height="150dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;            android:text="@string/text" />&ndash;&gt;-->
+    <!--    </LinearLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="5dp"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_code"-->
+    <!--            style="@android:style/ButtonBar"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginEnd="10dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:height="150dp"-->
+    <!--            android:text="@string/QRcode" />-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_face"-->
+    <!--            style="@android:style/ButtonBar"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:height="150dp"-->
+    <!--            android:text="@string/face" />-->
+    <!--    </LinearLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="5dp"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_chatbot"-->
+    <!--            style="@android:style/ButtonBar"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginEnd="10dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:height="150dp"-->
+    <!--            android:text="@string/chatbot" />-->
+
+    <!--        &lt;!&ndash;        <Button&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/btn_map"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            style="@android:style/ButtonBar"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:height="150dp"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:text="@string/setting" />&ndash;&gt;-->
+
+    <!--    </LinearLayout>-->
+
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/btn_setting"-->
+    <!--            android:layout_width="50dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:maxHeight="100dp"-->
+    <!--            app:srcCompat="@android:drawable/ic_menu_preferences"-->
+    <!--            android:contentDescription="@string/todo" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/btn_speak"-->
+    <!--            android:layout_marginLeft="50dp"-->
+    <!--            android:layout_marginRight="50dp"-->
+    <!--            android:layout_marginTop="250dp"-->
+    <!--            android:layout_width="150dp"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:layout_marginStart="120dp"-->
+    <!--            android:contentDescription="@string/todo"-->
+    <!--            android:maxHeight="100dp"-->
+    <!--            app:srcCompat="@android:drawable/presence_audio_online" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/btn_more"-->
+    <!--            android:layout_width="100dp"-->
+    <!--            android:layout_height="120dp"-->
+    <!--            android:maxHeight="100dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            app:srcCompat="@android:drawable/ic_dialog_dialer"-->
+    <!--            android:contentDescription="@string/todo" />-->
+
+
+</LinearLayout>
+
+
+
+

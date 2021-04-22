@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.application.Chatbot_ui">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:orientation="vertical">
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/top_bar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            app:cardBackgroundColor="@color/colorReddish"-->
+        <!--            app:cardCornerRadius="0dp"-->
+        <!--            app:cardElevation="5dp">-->
+
+        <!--            <RelativeLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_marginStart="10dp"-->
+        <!--                android:layout_marginEnd="10dp">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/bot_speech_toggle"-->
+        <!--                    android:layout_width="30dp"-->
+        <!--                    android:layout_height="30dp"-->
+        <!--                    android:layout_alignParentStart="true"-->
+        <!--                    android:layout_centerVertical="true"-->
+        <!--                    android:contentDescription="@string/todo"-->
+        <!--                    android:src="@drawable/ic_mute_button" />-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/show_description"-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:layout_centerVertical="true"-->
+        <!--                    android:text="@string/chatbot"-->
+        <!--                    android:textColor="#fff"-->
+        <!--                    android:textSize="20sp"-->
+        <!--                    android:textStyle="bold" />-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/delete_chats"-->
+        <!--                    android:layout_width="30dp"-->
+        <!--                    android:layout_height="30dp"-->
+        <!--                    android:layout_alignParentEnd="true"-->
+        <!--                    android:layout_centerVertical="true"-->
+        <!--                    android:contentDescription="@string/todo"-->
+        <!--                    android:src="@drawable/ic_delete_chats_button" />-->
+
+        <!--            </RelativeLayout>-->
+        <!--        </androidx.cardview.widget.CardView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bot_writing_view"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:scrollbars="none" />
+
+        <ImageView
+            android:id="@+id/bot_writing_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@id/card_view"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/bot_icon"
+            android:visibility="gone" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:layout_alignParentBottom="true"
+            app:cardBackgroundColor="#dcdcdc">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:background="#fff"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/message_input_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.1"
+                    android:autofillHints=""
+                    android:background="@null"
+                    android:hint="@string/type_a_message"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/message_speak_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_mic" />
+
+                <ImageView
+                    android:id="@+id/message_send_button"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.1"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_send_button"
+                    android:visibility="invisible" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/colorReddish"
+
+        android:padding="10dp"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <TextView
+            android:id="@+id/about_black_bot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/virtual_ai_assistant_bot_n_n_the_quick_brown_fox_jumps_over_the_lazy_dog"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

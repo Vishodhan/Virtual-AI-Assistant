@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.application">
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Application"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Chatbot_ui">
+            <intent-filter>
+                <action android:name="com.example.application.Chatbot_ui" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fDetectorActivity"
+            android:label="Face detection" />
+        <activity
+            android:name=".CameraActivity"
+            android:label="Camera Activity" />
+
+        <activity
+            android:name=".surfaceview"
+            android:label="Barcode scanner" />
+
+        <activity
+            android:name=".DetectorActivity"
+            android:label="Object Recognition" />
+        <activity
+            android:name=".text_recognition"
+            android:label="Text_detect" />
+        <activity
+            android:name=".QR_and_Barcode"
+            android:label="Barcode" />
+        <!-- <activity android:name=".Setting_page"></activity> -->
+        <!-- <activity android:name=".More" /> -->
+        <activity android:name=".Main_appln">
+            <meta-data
+                android:name="com.google.mlkit.vision.DEPENDENCIES"
+                android:value="ocr" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

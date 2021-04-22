@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="5dp"
+    android:paddingRight="10dp"
+    tools:context=".Main_appln">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_obj"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:width="10dp"
+            android:height="150dp"
+            android:text="@string/object" />
+
+        <Button
+            android:id="@+id/btn_text"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="150dp"
+            android:text="@string/text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_code"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:height="150dp"
+            android:text="@string/QRcode" />
+
+        <Button
+            android:id="@+id/btn_face"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="150dp"
+            android:text="@string/face" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_chatbot"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:height="150dp"
+            android:text="@string/chatbot" />
+
+        <Button
+            android:id="@+id/btn_map"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="150dp"
+            android:text="@string/setting" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/btn_setting"-->
+        <!--            android:layout_width="50dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:maxHeight="100dp"-->
+        <!--            app:srcCompat="@android:drawable/ic_menu_preferences"-->
+        <!--            android:contentDescription="@string/todo" />-->
+
+        <ImageView
+            android:id="@+id/btn_speak"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="120dp"
+            android:contentDescription="@string/todo"
+            android:maxHeight="100dp"
+            app:srcCompat="@android:drawable/presence_audio_online" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/btn_more"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="120dp"-->
+        <!--            android:maxHeight="100dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            app:srcCompat="@android:drawable/ic_dialog_dialer"-->
+        <!--            android:contentDescription="@string/todo" />-->
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+

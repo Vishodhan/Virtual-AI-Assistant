@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<category><pattern>VERSION</pattern>
+<template>Black.Bot AIML Bot version 0.0.4</template>
+</category>
+<category><pattern>BUILD</pattern>
+<template>Wed Feb 25 07:57:49 EST 2019</template>
+</category>
+<category><pattern>DELEVLOPMENT ENVIRONMENT</pattern>
+<template>Program AB 0.0.4.2 beta -- AI Foundation Reference AIML 2.0 implementation</template>
+</category>
+</aiml>

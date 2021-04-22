@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#ffffff</color>
+    <color name="bg">#f7348bc6</color>
+    <color name="gray">#918779</color>
+    <color name="btn">#ff0000</color>
+    <color name="purple">#9a3cc9</color>
+
+    <color name="colorOrange">#ff8a65</color>
+    <color name="colorReddish">#e15b64</color>
+    <color name="colorA">#abbc85</color>
+    <color name="lightGreen">#a5d6a7</color>
+    <color name="yellowishOrange">#ffd180</color>
+    <color name="tfe_color_primary">#ffa800</color>
+    <color name="tfe_color_primary_dark">#ff6f00</color>
+    <color name="tfe_color_accent">#425066</color>
+
+    <color name="tfe_semi_transparent">#66000000</color>
+</resources>

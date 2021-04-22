@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Application</string>
+    <string name="sub_module">More</string>
+    <string name="setting_name">Setting</string>
+    <string name="text_name">Text_Recognition</string>
+    <string name="scan_qr_and_barcode">Scan QR and Barcode</string>
+    <string name="result_display_here">Result display here</string>
+    <string name="start_reading">start reading</string>
+    <string name="object">Object</string>
+    <string name="text">Text</string>
+    <string name="QRcode">QR code</string>
+    <string name="face">Face</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="todo">TODO</string>
+    <string name="setting">Setting</string>
+    <string name="virtual_ai_assistant_bot_n_n_the_quick_brown_fox_jumps_over_the_lazy_dog">Virtual\'s AI assistant Bot\n\n The quick brown fox jumps over the lazy dog...</string>
+    <string name="type_a_message">Type here</string>
+    <string name="i_am_good">i am good</string>
+    <string name="hello_there_how_are_you_i_am_very_good_what_about_you">hello there how are you i am very good what about you</string>
+    <string name="tfe_od_app_name" translation_description="Object Detection demo app [CHAR_LIMIT=40]">Face Recognition</string>
+    <string name="tfe_od_camera_error" translation_description="Error regarding camera support[CHAR_LIMIT=40]">This device doesn\'t support Camera2 API.</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+
+</resources>
