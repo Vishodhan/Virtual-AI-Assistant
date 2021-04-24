@@ -26,11 +26,14 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
 
 public class Main_appln extends AppCompatActivity {
     Button btn_obj, btn_code, btn_text, btn_facedetect, btn_chatbot;
     SpeechRecognizer recognizer;
     private TextToSpeech tts;
+    int Count=0;
+    Timer delay;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -67,7 +70,9 @@ public class Main_appln extends AppCompatActivity {
                         token.continuePermissionRequest();
                     }
                 }).check();
+        if(Count==0){
         initializeTextToSpeech();
+        Count+=1;}
 //        initializeResult();
 
 
@@ -186,7 +191,9 @@ public class Main_appln extends AppCompatActivity {
             if (tts.getEngines().size() == 0) {
                 Toast.makeText(Main_appln.this, "Engine is not available", Toast.LENGTH_LONG).show();
             } else {
-                speak("Hi! Welcome to Virohit app" + "     We have 5 modules" +
+                tts.setPitch(0.8f);
+                tts.setSpeechRate(0.95f);
+                speak("Hi! Welcome to Virohit app.  We have 5 modules" +
                         "Object detection" + " face detection " + " QR Code Scanner " + " Text Recognition " + " Chatbot ");
             }
         });
@@ -287,11 +294,6 @@ public class Main_appln extends AppCompatActivity {
                 speak("Opening text recognition");
                 startActivity(new Intent(Main_appln.this, text_recognition.class));
                 break;
-            case "black buck":
-                speak("salman bhai killed a black buck");
-//                startActivity(new Intent(Main_appln.this,text_recognition.class));
-                break;
-
 
             default:
                 speak("Please speak a valid input");
