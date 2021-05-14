@@ -34,26 +34,26 @@ import java.util.Locale;
 
 import static android.Manifest.permission.CAMERA;
 
-public class text_recognition extends AppCompatActivity {
+public class surface_view extends AppCompatActivity {
 
-    TextToSpeech textToSpeech, t2;
+    TextToSpeech  t2;
     private TextView textView;
     private SurfaceView surfaceView;
     private CameraSource cameraSource;
-    private Button camActivity;
+    private Button svback;
     private String stringResult = null;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_text_recognition);
         setContentView(R.layout.activity_surfaceview);
-        camActivity = findViewById(R.id.camActivity);
+        svback =  findViewById(R.id.svback);
 
 
-        camActivity.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(text_recognition.this, new GestureDetector.SimpleOnGestureListener() {
+        svback.setOnTouchListener(new View.OnTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(surface_view.this, new GestureDetector.SimpleOnGestureListener()
+            {
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
                     t2.speak("Going back to main menu", TextToSpeech.QUEUE_FLUSH, null);
@@ -76,7 +76,7 @@ public class text_recognition extends AppCompatActivity {
         });
 
         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, PackageManager.PERMISSION_GRANTED);
-        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+        t2 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
             }
@@ -93,12 +93,12 @@ public class text_recognition extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         cameraSource.release();
-        textToSpeech.stop();
+        t2.stop();
         super.onDestroy();
 
     }
 
-    private void textRecognizer() {
+    public void textRecognizer() {
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         cameraSource = new CameraSource.Builder(getApplicationContext(), textRecognizer)
                 .setRequestedPreviewSize(1080, 720)
@@ -108,7 +108,7 @@ public class text_recognition extends AppCompatActivity {
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                if (ActivityCompat.checkSelfPermission(text_recognition.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(surface_view.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
                 try {
@@ -149,11 +149,10 @@ public class text_recognition extends AppCompatActivity {
                     }
                 }
 
-                final String stringText = stringBuilder.toString();
-                stringResult = stringText;
-
+                stringResult = stringBuilder.toString();
+                Log.d("stringResult", stringResult);
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(() -> resultObtained(), 3000);
+                handler.postDelayed(() -> resultObtained(), 5000);
             }
         });
     }
@@ -161,17 +160,11 @@ public class text_recognition extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     private void resultObtained() {
-        setContentView(R.layout.activity_text_recognition);
+        setContentView(R.layout.activity_start_reading);
         textView = findViewById(R.id.textView);
         textView.setText(stringResult);
-        Log.d("stringResult", stringResult);
-        textToSpeech.speak(stringResult, TextToSpeech.QUEUE_FLUSH, null, null);
+    t2.speak(stringResult, TextToSpeech.QUEUE_FLUSH, null, null);
 
     }
 
-
-    public void buttonStart(View view) {
-        setContentView(R.layout.activity_surfaceview);
-        textRecognizer();
-    }
 }

@@ -39,20 +39,18 @@
             android:label="Camera Activity" />
 
         <activity
-            android:name=".surfaceview"
-            android:label="Barcode scanner" />
-
-        <activity
             android:name=".DetectorActivity"
             android:label="Object Recognition" />
         <activity
-            android:name=".text_recognition"
+            android:name=".surface_view"
             android:label="Text_detect" />
         <activity
             android:name=".QR_and_Barcode"
             android:label="Barcode" />
-        <!-- <activity android:name=".Setting_page"></activity> -->
-        <!-- <activity android:name=".More" /> -->
+        <activity
+            android:name=".Start_reading"
+            android:label="Start Reading" />
+
         <activity android:name=".Main_appln">
             <meta-data
                 android:name="com.google.mlkit.vision.DEPENDENCIES"

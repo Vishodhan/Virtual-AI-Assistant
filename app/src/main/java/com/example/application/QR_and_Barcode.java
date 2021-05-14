@@ -39,7 +39,6 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
     public Matcher m1, m2 = null;
     Intent call_scanqr;
     private TextToSpeech tts;
-    private Button camActivity;
     private ZXingScannerView scannerView;
 
 
@@ -49,31 +48,6 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         super.onCreate(savedInstanceState);
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
-        camActivity = findViewById(R.id.goBack);
-
-
-        camActivity.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(QR_and_Barcode.this, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    tts.speak("Going back to main menu", TextToSpeech.QUEUE_FLUSH, null);
-                    startActivity(new Intent(getApplicationContext(), Main_appln.class));
-                    return super.onDoubleTap(e);
-                }
-
-                @Override
-                public boolean onSingleTapConfirmed(MotionEvent e) {
-                    tts.speak("Tap again to go back to main menu", TextToSpeech.QUEUE_FLUSH, null);
-                    return super.onSingleTapConfirmed(e);
-                }
-            });
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return false;
-            }
-        });
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -86,7 +60,7 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
-                if (i != TextToSpeech.SUCCESS) {
+                if (i != TextToSpeech.ERROR) {
                     tts.setLanguage(Locale.ENGLISH);
                 }
             }
@@ -101,32 +75,6 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
     }
 
-    public void OnRequestPermissionResult(int requestCode, String[] permission, int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_CAMERA:
-                if (grantResults.length > 0) {
-                    boolean camAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    if (camAccepted) {
-                        Toast.makeText(QR_and_Barcode.this, "Permission Granted", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(QR_and_Barcode.this, "Permission Denied", Toast.LENGTH_LONG).show();
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            if (shouldShowRequestPermissionRationale(CAMERA)) {
-                                displayAlertMessage("You need to allow access for both permission",
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                requestPermissions(new String[]{CAMERA}, REQUEST_CAMERA);
-                                            }
-                                        });
-                                return;
-                            }
-                        }
-                    }
-                }
-                break;
-        }
-    }
 
     @Override
     public void onResume() {
@@ -167,13 +115,10 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         final String scanResult = rawResult.getText();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan Result");
-        builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+        builder.setNegativeButton("Ok", (dialogInterface, i) -> {
 //                scannerView.resumeCameraPreview(QR_and_Barcode.this);
-                Intent callqr = new Intent(QR_and_Barcode.this, Main_appln.class);
-                startActivity(callqr);
-            }
+            Intent callqr = new Intent(QR_and_Barcode.this, Main_appln.class);
+            startActivity(callqr);
         });
         builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
             @Override
@@ -210,7 +155,6 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         alert.show();
         Pattern p1 = Pattern.compile(URL_REGEX);
         Pattern p2 = Pattern.compile(URL_NUM);
-        //Matcher m1 = p1.matcher(scanResult);
         m1 = p1.matcher(scanResult);
         m2 = p2.matcher(scanResult);
         if (m1.find()) {
@@ -221,10 +165,6 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
             tts.speak(scanResult, TextToSpeech.QUEUE_FLUSH, null, null);
         }
 
-//        if(m1.find()){
-//            tts.speak("String contains URL", TextToSpeech.QUEUE_FLUSH,null,null);
-//        }else {
-//            tts.speak(scanResult, TextToSpeech.QUEUE_FLUSH, null, null);
-//        }
+
     }
 }

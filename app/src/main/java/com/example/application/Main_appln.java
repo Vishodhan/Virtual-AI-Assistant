@@ -191,10 +191,9 @@ public class Main_appln extends AppCompatActivity {
             if (tts.getEngines().size() == 0) {
                 Toast.makeText(Main_appln.this, "Engine is not available", Toast.LENGTH_LONG).show();
             } else {
-                tts.setPitch(0.8f);
-                tts.setSpeechRate(0.95f);
-                speak("Hi! Welcome to Virohit app.  We have 5 modules" +
-                        "Object detection" + " face detection " + " QR Code Scanner " + " Text Recognition " + " Chatbot ");
+                speak("Hi! Welcome to Virohit app.");
+//                        We have 5 modules" +
+//                        "Object detection" + " face detection " + " QR Code Scanner " + " Text Recognition " + " Chatbot ");
             }
         });
     }
@@ -292,7 +291,7 @@ public class Main_appln extends AppCompatActivity {
                 break;
             case "open text recognition":
                 speak("Opening text recognition");
-                startActivity(new Intent(Main_appln.this, text_recognition.class));
+                startActivity(new Intent(Main_appln.this, surface_view.class));
                 break;
 
             default:
