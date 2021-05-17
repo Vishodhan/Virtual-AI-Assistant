@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -36,8 +35,8 @@ import static android.Manifest.permission.CAMERA;
 
 public class surface_view extends AppCompatActivity {
 
-    TextToSpeech  t2;
-    private TextView textView;
+    TextToSpeech t2;
+
     private SurfaceView surfaceView;
     private CameraSource cameraSource;
     private Button svback;
@@ -48,12 +47,11 @@ public class surface_view extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surfaceview);
-        svback =  findViewById(R.id.svback);
+        svback = findViewById(R.id.svback);
 
 
         svback.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(surface_view.this, new GestureDetector.SimpleOnGestureListener()
-            {
+            GestureDetector gestureDetector = new GestureDetector(surface_view.this, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
                     t2.speak("Going back to main menu", TextToSpeech.QUEUE_FLUSH, null);
@@ -79,12 +77,9 @@ public class surface_view extends AppCompatActivity {
         t2 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
+                t2.setLanguage(Locale.getDefault());
+                t2.speak("Double tap anywhere on the screen to return to main menu", TextToSpeech.QUEUE_FLUSH, null);
             }
-        });
-
-        t2 = new TextToSpeech(getApplicationContext(), status -> {
-            t2.setLanguage(Locale.getDefault());
-            t2.speak("Double tap anywhere on the screen to return to main menu", TextToSpeech.QUEUE_FLUSH, null);
         });
 
         textRecognizer();
@@ -150,21 +145,24 @@ public class surface_view extends AppCompatActivity {
                 }
 
                 stringResult = stringBuilder.toString();
-                Log.d("stringResult", stringResult);
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(() -> resultObtained(), 5000);
             }
+
         });
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(this::resultObtained, 6000);
+
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     private void resultObtained() {
-        setContentView(R.layout.activity_start_reading);
-        textView = findViewById(R.id.textView);
-        textView.setText(stringResult);
-    t2.speak(stringResult, TextToSpeech.QUEUE_FLUSH, null, null);
+        Intent intent = new Intent(getApplicationContext(), Start_reading.class);
+        intent.putExtra("TextResult", stringResult);
+        startActivity(intent);
+
 
     }
+
 
 }

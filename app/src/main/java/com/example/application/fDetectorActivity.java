@@ -137,13 +137,7 @@ public class fDetectorActivity extends fCameraActivity implements OnImageAvailab
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//    fabAdd = findViewById(R.id.fab_add);
-//    fabAdd.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        onAddClick();
-//      }
-//    });
+
 
         // Real-time contour detection of multiple faces
         FaceDetectorOptions options =

@@ -33,7 +33,6 @@ public class Main_appln extends AppCompatActivity {
     SpeechRecognizer recognizer;
     private TextToSpeech tts;
     int Count=0;
-    Timer delay;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -73,115 +72,6 @@ public class Main_appln extends AppCompatActivity {
         if(Count==0){
         initializeTextToSpeech();
         Count+=1;}
-//        initializeResult();
-
-
-//        btn_chatbot.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                gestureDetector.onTouchEvent(motionEvent);
-//                return false;
-//            }
-//
-//            GestureDetector gestureDetector = new GestureDetector(Main_appln.this, new GestureDetector.SimpleOnGestureListener() {
-//                @Override
-//                public boolean onDoubleTap(MotionEvent e) {
-//                    tts.speak("Launching Chatbot", TextToSpeech.QUEUE_FLUSH, null);
-//                    startActivity(new Intent(getApplicationContext(), Chatbot_ui.class));
-//                    return super.onDoubleTap(e);
-//                }
-//
-//                @Override
-//                public boolean onSingleTapConfirmed(MotionEvent e) {
-//                    tts.speak("Chatbot.  Double tap to launch", TextToSpeech.QUEUE_FLUSH, null);
-//                    return super.onSingleTapConfirmed(e);
-//                }
-//            });
-//        });
-
-//        btn_text.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                gestureDetector.onTouchEvent(motionEvent);
-//                return false;
-//            }
-//
-//            GestureDetector gestureDetector = new GestureDetector(Main_appln.this, new GestureDetector.SimpleOnGestureListener() {
-//                @Override
-//                public boolean onDoubleTap(MotionEvent e) {
-//                    tts.speak("Launching Text recognition", TextToSpeech.QUEUE_FLUSH, null);
-//                    startActivity(new Intent(getApplicationContext(), text_recognition.class));
-//                    return super.onDoubleTap(e);
-//                }
-//
-//                @Override
-//                public boolean onSingleTapConfirmed(MotionEvent e) {
-//                    tts.speak("Text recognition.  Double tap to launch", TextToSpeech.QUEUE_FLUSH, null);
-//                    return super.onSingleTapConfirmed(e);
-//                }
-//            });
-//        });
-//
-//        btn_facedetect.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent motionEvent) {
-//                gestureDetector.onTouchEvent(motionEvent);
-//                return false;
-//            }
-//
-//            GestureDetector gestureDetector = new GestureDetector(Main_appln.this, new GestureDetector.SimpleOnGestureListener() {
-//                @Override
-//                public boolean onDoubleTap(MotionEvent e) {
-//                    tts.speak("Launching Face Detection", TextToSpeech.QUEUE_FLUSH, null);
-//                    startActivity(new Intent(getApplicationContext(), fDetectorActivity.class));
-//                    return super.onDoubleTap(e);
-//                }
-//
-//                @Override
-//                public boolean onSingleTapConfirmed(MotionEvent e) {
-//                    tts.speak("Face Detection.  Double tap to launch", TextToSpeech.QUEUE_FLUSH, null);
-//                    return super.onSingleTapConfirmed(e);
-//                }
-//            });
-//        });
-
-
-//        btn_obj.setOnClickListener(v -> {
-//            tts.speak("Hello worldd",TextToSpeech.QUEUE_FLUSH,null);
-//            recognizer = SpeechRecognizer.createSpeechRecognizer(getApplicationContext());
-//            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); //added
-//            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-//            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-//            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hi Speak Something");
-//            try {
-//                recognizer.startListening(intent);
-//            } catch (ActivityNotFoundException e) {
-//                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-//        btn_code.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                gestureDetector.onTouchEvent(motionEvent);
-//                return false;
-//            }
-//
-//            GestureDetector gestureDetector = new GestureDetector(Main_appln.this, new GestureDetector.SimpleOnGestureListener() {
-//                @Override
-//                public boolean onDoubleTap(MotionEvent e) {
-//                    tts.speak("Launching QR Code scanner", TextToSpeech.QUEUE_FLUSH, null);
-//                    startActivity(new Intent(getApplicationContext(), QR_and_Barcode.class));
-//                    return super.onDoubleTap(e);
-//                }
-//
-//                @Override
-//                public boolean onSingleTapConfirmed(MotionEvent e) {
-//                    tts.speak("QR Code Scanner.  Double tap to launch", TextToSpeech.QUEUE_FLUSH, null);
-//                    return super.onSingleTapConfirmed(e);
-//                }
-//            });
-//        });
 
 
     }//oncreate ends here
@@ -270,7 +160,7 @@ public class Main_appln extends AppCompatActivity {
                 speak("Hello sir! how are you?");
                 break;
 
-            case "open object detection":
+            case "open object recognition":
                 speak("Opening  object recognition");
                 startActivity(new Intent(Main_appln.this, DetectorActivity.class));
                 break;
