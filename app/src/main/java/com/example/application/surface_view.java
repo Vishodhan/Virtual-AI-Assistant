@@ -17,7 +17,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,7 +89,13 @@ public class surface_view extends AppCompatActivity {
         cameraSource.release();
         t2.stop();
         super.onDestroy();
+    }
 
+    @Override
+    protected void onStop() {
+        cameraSource.release();
+        t2.stop();
+        super.onStop();
     }
 
     public void textRecognizer() {
@@ -121,10 +126,9 @@ public class surface_view extends AppCompatActivity {
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
                 cameraSource.stop();
+
             }
         });
-
-
         textRecognizer.setProcessor(new Detector.Processor<TextBlock>() {
             @Override
             public void release() {
@@ -148,8 +152,12 @@ public class surface_view extends AppCompatActivity {
             }
 
         });
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(this::resultObtained, 6000);
+        onWindowFocusChanged(true);
+        if (cameraSource != null && hasWindowFocus()) {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(this::resultObtained, 6000);
+        }
+
 
     }
 
@@ -160,7 +168,6 @@ public class surface_view extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Start_reading.class);
         intent.putExtra("TextResult", stringResult);
         startActivity(intent);
-
 
     }
 

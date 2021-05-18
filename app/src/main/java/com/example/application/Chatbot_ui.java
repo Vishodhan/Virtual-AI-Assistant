@@ -518,6 +518,8 @@ public class Chatbot_ui extends AppCompatActivity {
         messageAdapter.swapCursor(getAllMessages());
     }
 
+    
+
     // copying the file
     private void copyFile(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
