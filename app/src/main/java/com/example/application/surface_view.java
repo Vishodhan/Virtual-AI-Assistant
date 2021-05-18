@@ -54,6 +54,8 @@ public class surface_view extends AppCompatActivity {
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
                     t2.speak("Going back to main menu", TextToSpeech.QUEUE_FLUSH, null);
+                    cameraSource.stop();
+                    stringResult=null;
                     startActivity(new Intent(getApplicationContext(), Main_appln.class));
                     return super.onDoubleTap(e);
                 }
@@ -121,6 +123,7 @@ public class surface_view extends AppCompatActivity {
 
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
             }
 
             @Override
@@ -152,11 +155,10 @@ public class surface_view extends AppCompatActivity {
             }
 
         });
-        onWindowFocusChanged(true);
-        if (cameraSource != null && hasWindowFocus()) {
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.postDelayed(this::resultObtained, 6000);
-        }
+
+
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(this::resultObtained, 6000);
 
 
     }
@@ -165,9 +167,11 @@ public class surface_view extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     private void resultObtained() {
-        Intent intent = new Intent(getApplicationContext(), Start_reading.class);
-        intent.putExtra("TextResult", stringResult);
-        startActivity(intent);
+        if (stringResult != null) {
+            Intent intent = new Intent(getApplicationContext(), Start_reading.class);
+            intent.putExtra("TextResult", stringResult);
+            startActivity(intent);
+        }
 
     }
 

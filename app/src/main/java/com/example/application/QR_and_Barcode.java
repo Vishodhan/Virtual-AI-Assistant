@@ -8,10 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
+
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -32,7 +29,7 @@ import static android.Manifest.permission.CAMERA;
 
 public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
-    public static final String URL_REGEX = "^((https?|ftp)://|(www|ftp)\\.)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?$";
+    public static final String URL_REGEX = "^((https?)://|(www)\\.)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?$";
     //private Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
     public static final String URL_NUM = "-?\\d+(\\.\\d+)?";
     private static final int REQUEST_CAMERA = 1;
@@ -48,6 +45,8 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         super.onCreate(savedInstanceState);
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
+
+
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -158,7 +157,7 @@ public class QR_and_Barcode extends AppCompatActivity implements ZXingScannerVie
         m1 = p1.matcher(scanResult);
         m2 = p2.matcher(scanResult);
         if (m1.find()) {
-            tts.speak("String contains URL  " + scanResult, TextToSpeech.QUEUE_FLUSH, null, null);
+            tts.speak("String contains URL  " , TextToSpeech.QUEUE_FLUSH, null, null);
         } else if (m2.find()) {
             tts.speak("String Contains Number" + scanResult, TextToSpeech.QUEUE_FLUSH, null, null);
         } else {
