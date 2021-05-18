@@ -43,10 +43,10 @@
             android:label="Object Recognition" />
         <activity
             android:name=".surface_view"
-            android:label="Text_detect" />
+            android:label="Text Recognition" />
         <activity
             android:name=".QR_and_Barcode"
-            android:label="Barcode" />
+            android:label="QR Code" />
         <activity
             android:name=".Start_reading"
             android:label="Start Reading" />
